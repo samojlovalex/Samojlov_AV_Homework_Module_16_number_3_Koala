@@ -83,7 +83,7 @@ class SMSFragment : Fragment() {
     }
 
     private fun sendSMS() {
-        val message = smsTextET.toString()
+        val message = smsTextET.text.toString()
         try {
             val smsManager: SmsManager = if (Build.VERSION.SDK_INT >= 23) {
                 activity?.getSystemService(SmsManager::class.java)!!
