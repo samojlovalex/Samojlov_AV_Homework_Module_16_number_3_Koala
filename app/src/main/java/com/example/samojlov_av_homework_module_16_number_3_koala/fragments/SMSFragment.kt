@@ -76,7 +76,10 @@ class SMSFragment : Fragment() {
 
         nameSMSTV.setSelected(true)
 
-        sendSMS()
+        smsSendBT.setOnClickListener {
+            if (smsTextET.text.isEmpty()) return@setOnClickListener
+            sendSMS()
+        }
     }
 
     private fun sendSMS() {
@@ -98,6 +101,7 @@ class SMSFragment : Fragment() {
                 getString(R.string.sendSMS_Toast_false) + e.message.toString(), Toast.LENGTH_LONG
             ).show()
         }
+        smsTextET.text.clear()
     }
 
     private fun initToolbar() {
